@@ -22,7 +22,7 @@ require(path.join(__dirname, 'config', 'env.js'))(express, app);
 require(path.join(__dirname, 'routes'))(app, nus);
 
 // Start HTTP server
-app.listen(opts.port, function () {
+app.listen(process.env.PORT, function () {
   console.log('Express server listening on port %d in %s mode',
     opts.port, app.settings.env
   );
