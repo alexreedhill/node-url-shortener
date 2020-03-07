@@ -7,6 +7,8 @@ module.exports = function (app, nus) {
     .post(function (req, res) {
       nus.shorten(req.body['long_url'], req.body['start_date'], req.body['end_date'], req.body['c_new'], function (err, reply) {
         if (err) {
+          console.log('There was an error!')
+          console.error(err)
           jsonResponse(res, err);
         } else if (reply) {
           reply.short_url = opts.url.replace(/\/$/, '') + '/' + reply.hash;
